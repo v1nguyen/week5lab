@@ -6,21 +6,21 @@ import junit.framework.TestCase;
 public class CelsiusTest extends TestCase{
     private float delta = 0.001f;
 
-    public void testCelsius(){
+    public void testFahrenheit(){
         float value = 12.34f;
-        Celsius temp = new Celsius(value);
+        Fahrenheit temp = new Fahrenheit(value);
 
         assertEquals(value, temp.getValue(), delta);
     }
 
-    public void testCelsiusToString(){
+    public void testFahrenheitToString(){
         float value = 12.34f;
 
-        Celsius temp = new Celsius(value);
+        Fahrenheit temp = new Fahrenheit(value);
         String string = temp.toString();
 
         String beginning = "" + value;
-        String ending = " C";
+        String ending = " F";
 
         // Verify the suffix of the formatted string
         assertTrue(string.startsWith(beginning));
@@ -35,22 +35,23 @@ public class CelsiusTest extends TestCase{
         assertTrue(string.substring(0, endIndex).equals(beginning));
     }
 
-    public void testCelsiusToCelsius()
+    public void testFahrenheitToFahrenheit()
     {
-        Celsius temp = new Celsius(0);
-        Temperature convert = temp.toCelsius();
-        assertEquals(0, convert.getValue(), delta);
-    }
-
-    public void testCelsiusToFahrenheit(){
-        Celsius temp = new Celsius(0);
+        Fahrenheit temp = new Fahrenheit(32);
 
         Temperature convert = temp.toFahrenheit();
         assertEquals(32, convert.getValue(), delta);
+    }
 
-        temp = new Celsius(100);
-        convert = temp.toFahrenheit();
+    public void testFahrenheitToCelsius(){
+        Fahrenheit temp = new Fahrenheit(32);
 
-        assertEquals(212, convert.getValue(), delta);
+        Temperature convert = temp.toCelsius();
+        assertEquals(0, convert.getValue(), delta);
+
+        temp = new Fahrenheit(212);
+        convert = temp.toCelsius();
+
+        assertEquals(100, convert.getValue(), delta);
     }
 }
