@@ -23,6 +23,7 @@ public class Celsius extends Temperature
         // TODO: Complete this method
         float val = this.getValue();
         String s = Float.toString(val);
+        s = s + " C";
         return s;
     }
 }
