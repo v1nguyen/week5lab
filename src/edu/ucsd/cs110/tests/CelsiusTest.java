@@ -22,7 +22,7 @@ public class CelsiusTest extends TestCase{
         String beginning = "" + value;
         String ending = " C";
 
-        assertEquals(value, 12.34f);
+        assertEquals(value, 1.34f);
     }
 
     public void testCelsiusToCelsius()
